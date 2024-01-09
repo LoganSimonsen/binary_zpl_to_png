@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+}
+
+.result {
+  position: relative;
+  width: fit-content;
+  border: solid thin black;
+}
+
+.image {
+  resize: both;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.rotate-button {
+  cursor: pointer;
+}
+
+button {
+  display: inline-block;
+  padding: 5px 5px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid royalblue;
+  border-radius: 4px;
+  background-color: royalblue;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: gray;
+}
+
+/* Active (clicked) effect */
+button:active {
+  background-color: #216795;
+}
+
+#width,
+#height {
+  max-width: 75px;
+}
