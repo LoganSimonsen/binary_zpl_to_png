@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm install",
+  "framework": "static",
+  "nodeVersion": "24.x"
+}

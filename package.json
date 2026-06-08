@@ -2,6 +2,9 @@
   "name": "binary_zpl_to_png",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "devDependencies": {
     "eslint": "^8.0.0",
     "stylelint": "^15.0.0",
