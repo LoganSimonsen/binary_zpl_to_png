@@ -2,6 +2,12 @@
 
 This small web tool converts ZPL (Zebra Programming Language) label files into PNG images using the Labelary API. It's useful when labels include embedded binary image data that labelary.com cannot show directly.
 
+## Why Use This?
+
+The Labelary web interface at labelary.com only accepts text input in the browser, which means it **cannot handle binary image data** embedded in ZPL files. When ZPL contains image data (e.g., `~DG` commands or embedded graphics), the text box strips or corrupts it.
+
+This tool **uploads the complete `.zpl` file as-is**, preserving all binary image data. The Labelary API then renders the label correctly, including any embedded images or graphics.
+
 ## Usage
 
 Open the project in a static server (recommended). For a quick local test you can run:
