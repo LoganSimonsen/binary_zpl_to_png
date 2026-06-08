@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>ZPL to PNG Converter</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h2>ZPL Label File to PNG Converter</h2>
-    <p>
-      This is an open source tool that utilizes the open
-      <a href="http://labelary.com/service.html#data-extraction">Labelary API</a
-      >. You may review the source code
-      <a href="https://github.com/LoganSimonsen/binary_zpl_to_png">here</a>
-    </p>
-    <!-- upload label -->
-    <form id="uploadForm" enctype="multipart/form-data">
-      <input type="file" id="zplFile" accept=".zpl" />
-      <br /><br />
-      <label for="dropdown">Select a Print Density:</label>
-      <select id="dropdown" name="dropdown">
-        <option value="6dpmm">6dpmm</option>
-        <option value="8dpmm" selected>8dpmm</option>
-        <option value="12dpmm">12dpmm</option>
-        <option value="24dpmm">24dpmm</option>
-      </select>
-      <br /><br />
-      Label Width in Inches:
-      <input type="float" value="4" id="width" />
-      Label height in Inches:
-      <input type="float" value="6" id="height" />
-      <br /><br />
-      <button type="submit">Display as PNG</button>
-    </form>
-    <div id="result"></div>
+    <div class="page">
+      <main class="panel">
+        <header class="hero">
+          <h1>ZPL Label File to PNG Converter</h1>
+          <p>
+            Convert a `.zpl` label file into a previewable PNG using the
+            <a href="https://labelary.com/service.html" target="_blank" rel="noopener">Labelary API</a>.
+          </p>
+          <p class="meta">
+            Upload your `.zpl`, select print density and dimensions, then
+            generate or download the PNG.
+          </p>
+          <p class="meta link-meta">
+            Source code on <a href="https://github.com/LoganSimonsen/binary_zpl_to_png" target="_blank" rel="noopener">GitHub</a>.
+          </p>
+        </header>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+          <div class="field">
+            <label for="zplFile">Label file (.zpl)</label>
+            <div class="dropzone" id="dropzone">
+              <p>Drag &amp; drop a .zpl file here, or click to choose one.</p>
+              <input type="file" id="zplFile" accept=".zpl" required>
+            </div>
+            <p class="file-name" id="fileName">No file selected</p>
+          </div>
+
+          <div class="field">
+            <label for="dropdown">Print density</label>
+            <select id="dropdown" name="dropdown">
+              <option value="6dpmm">6dpmm</option>
+              <option value="8dpmm" selected>8dpmm</option>
+              <option value="12dpmm">12dpmm</option>
+              <option value="24dpmm">24dpmm</option>
+            </select>
+          </div>
+
+          <div class="dimension-row">
+            <div class="field">
+              <label for="width">Label width (inches)</label>
+              <input id="width" type="number" step="0.01" min="0.1" value="4" required>
+            </div>
+            <div class="field">
+              <label for="height">Label height (inches)</label>
+              <input id="height" type="number" step="0.01" min="0.1" value="6" required>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="button button-primary" type="submit">Display as PNG</button>
+            <button class="button button-secondary" id="rotate-button" type="button" style="display: none">Rotate</button>
+            <button class="button button-tertiary" id="download-button" type="button" style="display: none">Download PNG</button>
+            <button class="button button-secondary" id="clear-button" type="button">Clear</button>
+          </div>
+        </form>
+
+        <div id="status" class="status" aria-live="polite"></div>
+        <div id="result" class="preview"></div>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>

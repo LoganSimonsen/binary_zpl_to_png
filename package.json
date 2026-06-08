@@ -1,0 +1,19 @@
+{
+  "name": "binary_zpl_to_png",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard": "^30.0.0",
+    "html-validate": "^7.0.0",
+    "playwright": "^1.45.0"
+  },
+  "scripts": {
+    "lint:js": "eslint . --ext .js",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:html": "html-validate index.html",
+    "test:browser": "node tests/browser-test.js",
+    "test": "npm run test:browser"
+  }
+}
